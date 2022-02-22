@@ -1,4 +1,5 @@
 use actix_web::{get, post, put, web, App, HttpResponse, HttpServer, Responder};
+use actix_cors::Cors;
 use chrono::prelude::*;
 use chrono::{DateTime, NaiveDateTime, Utc};
 use dotenv::dotenv;
@@ -323,6 +324,7 @@ async fn main() -> std::io::Result<()> {
     let port = env::var("PORT").expect("Please set port in .env");
     println!("HOSTING ON: {}:{}", host, port);
     HttpServer::new(|| {
+      Cors::default().supports_credentials();
         App::new()
             .service(get_sprint_data)
             .service(set_sprint_data)
