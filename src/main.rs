@@ -322,9 +322,10 @@ async fn main() -> std::io::Result<()> {
         }
     }
     let port = env::var("PORT").expect("Please set port in .env");
+    let real_host = env::var("REAL_HOST").expect("Please set port in .env");
     println!("HOSTING ON: {}:{}", host, port);
-    HttpServer::new(|| {
-      Cors::default().supports_credentials();
+    HttpServer::new(move || {
+      Cors::default().allowed_origin(real_host.as_str()).allow_any_header().allow_any_method().max_age(3600);
         App::new()
             .service(get_sprint_data)
             .service(set_sprint_data)
