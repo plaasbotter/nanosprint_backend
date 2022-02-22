@@ -1,0 +1,16 @@
+[package]
+name = "nanosprint"
+version = "0.1.0"
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+actix-web = "^3.3.2"
+actix-rt = "^2.4.0"
+serde = "^1.0.130"
+serde_json = "^1.0.70"
+chrono = "^0.4.19"
+regex = "^1.5.4"
+dotenv = "^0.15.0"
+postgres = "^0.19.1"
