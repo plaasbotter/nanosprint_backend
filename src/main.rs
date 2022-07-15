@@ -11,7 +11,7 @@ use std::env;
 use std::process::Command;
 use std::time::UNIX_EPOCH;
 
-//GET NANODYN SPRINT STUFF
+//GET SPRINT STUFF
 #[get("/nsprinter")]
 async fn get_sprint_data() -> impl Responder {
     //LOAD BASIC VARIABLES
